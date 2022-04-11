@@ -1,6 +1,6 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik} from 'formik';
 import * as yup from 'yup';
-
+import {ContactForm, InputField, Label, Error, BtnSubmitForm } from './Form.styled'
 const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
@@ -22,26 +22,26 @@ export const Forma = ({onSubmit}) => {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}>
-            <Form>
-                <label> Name
-                    
-                <Field
-                type="text"
-                name="name"
-                placeholder="Surname Name"
+            <ContactForm autoComplete='off'>
+                <Label htmlFor='name'> Name </Label>             
+                <InputField
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Surname Name"
                     />
-                    <ErrorMessage name="name" component="div"/>
-                </label>
-                <label> Number
-                    
-                <Field
-                type="tel"
-                name="number"
+                <Error name="name" component="div"/>
+                
+                <Label  htmlFor='number'> Number </Label >              
+                <InputField
+                    id="number"
+                    type="tel"
+                    name="number"
                     />
-                    <ErrorMessage name="number" component="div"/>
-                </label>
-                <button type="submit">Add contact</button>
-            </Form>
+                <Error name="number" component="div"/>
+                
+                <BtnSubmitForm type="submit">Add contact</BtnSubmitForm>
+            </ContactForm >
       </Formik>
     )
 }
