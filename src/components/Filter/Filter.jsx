@@ -1,4 +1,5 @@
-import {Label, InputField} from './Filter.styled'
+import PropTypes from 'prop-types';
+import { Label, InputField } from './Filter.styled'
 export const Filter = ({handleChange, value})=>{
  return (
 <>
@@ -6,3 +7,8 @@ export const Filter = ({handleChange, value})=>{
     <InputField id="filter" type="text" name="filter" value={value} onChange={handleChange}/>
 </>    
 )}
+
+Filter.propTypes = {
+    handleChange: PropTypes.func,
+    value:PropTypes.string,
+}

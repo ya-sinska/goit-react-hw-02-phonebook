@@ -1,5 +1,6 @@
 import { Formik} from 'formik';
 import * as yup from 'yup';
+import PropTypes from 'prop-types';
 import {ContactForm, InputField, Label, Error, BtnSubmitForm } from './Form.styled'
 const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
@@ -44,4 +45,8 @@ export const Forma = ({onSubmit}) => {
             </ContactForm >
       </Formik>
     )
+}
+
+Forma.propTypes = {
+    onSubmit: PropTypes.func,
 }
